@@ -15,9 +15,7 @@ const middleware = (req, res, next) => {
     }
 };
 
-app.use(middleware);
-
-app.get('/recipe/:ingredient', async (req,res) => {
+app.get('/recipe/:ingredient', middleware, async (req,res) => {
     counter++;
     const ingredient = req.params.ingredient;
     try {
