@@ -27,15 +27,15 @@ app.get('/recipe/:ingredient', async (req,res) => {
             res.send({ empty: true });
         }
 
-        const topThree = [];
+        const top = [];
         let count = 0;
 
         while (count < 3 && data.results[count]) {
             count++;
-            topThree.push(data.results[count]);
+            top.push(data.results[count]);
         }
 
-        res.send(topThree);
+        res.send(top);
     } catch (e) {
         res.status(500).res.send('error occured');
     }
